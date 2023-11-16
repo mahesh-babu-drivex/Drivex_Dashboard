@@ -70,7 +70,7 @@
         "mtd_count",
         "yesterday_count"
     ],
-    "dynamicPropertyPathList": [{"key": "cellBackground"}],
+    "dynamicPropertyPathList": [],
     "compactMode": "DEFAULT",
     "displayName": "Table",
     "bottomRow": 43,
@@ -111,7 +111,7 @@
             "enableFilter": true,
             "sticky": "",
             "originalId": "yesterday_count",
-            "cellBackground": "#64469b",
+            "cellBackground": "#ffffff",
             "verticalAlignment": "CENTER"
         },
         "procured_channel": {
@@ -140,7 +140,7 @@
             "enableFilter": true,
             "sticky": "",
             "originalId": "procured_channel",
-            "cellBackground": "",
+            "cellBackground": "#ffffff",
             "verticalAlignment": "CENTER"
         },
         "mtd_count": {
@@ -169,7 +169,7 @@
             "enableFilter": true,
             "sticky": "",
             "originalId": "mtd_count",
-            "cellBackground": "",
+            "cellBackground": "#ffffff",
             "verticalAlignment": "CENTER"
         }
     },
@@ -193,6 +193,6 @@
     "originalTopRow": 7,
     "mobileLeftColumn": 0,
     "isVisiblePagination": false,
-    "cellBackground": "{{}}",
+    "cellBackground": "#ffffff",
     "verticalAlignment": "CENTER"
 }
