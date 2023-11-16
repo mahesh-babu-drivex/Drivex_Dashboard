@@ -7,7 +7,7 @@
     "isSortable": false,
     "type": "TABLE_WIDGET_V2",
     "inlineEditingSaveOption": "ROW_LEVEL",
-    "animateLoading": true,
+    "animateLoading": false,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"},
@@ -173,7 +173,7 @@
         }
     },
     "key": "0l0cpksy55",
-    "canFreezeColumn": true,
+    "canFreezeColumn": false,
     "isDeprecated": false,
     "rightColumn": 63,
     "textSize": "0.875rem",
