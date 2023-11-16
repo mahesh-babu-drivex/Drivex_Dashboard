@@ -1,0 +1,23 @@
+DO $$
+DECLARE
+    column_name text;
+    table_name text;
+    yesterday_date_query text;
+    yesterday_date_result text;
+BEGIN
+    -- Replace 'your_table_name' with your table name
+    SELECT column_name, table_name 
+    INTO column_name, table_name
+    FROM information_schema.columns 
+    WHERE table_name = 'sales_dash' 
+    AND data_type = 'character varying'; -- Modify the data type as needed
+
+    -- Construct a query to fetch yesterday's date dynamically
+    yesterday_date_query := format('SELECT %I, to_char(to_date(%I, ''DD-Mon'') - interval ''1 day'', ''DD-Mon'') AS yesterday_date_in_format FROM %I', column_name, column_name, table_name);
+
+    -- Execute the constructed query
+    EXECUTE yesterday_date_query INTO yesterday_date_result;
+
+    -- Display the result
+    RAISE NOTICE 'Yesterday''s date: %', yesterday_date_result;
+END $$;

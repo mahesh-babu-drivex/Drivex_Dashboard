@@ -1,6 +1,6 @@
 {
     "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-    "borderColor": "#E0DEDE",
+    "borderColor": "#e15615",
     "isVisibleDownload": false,
     "iconSVG": "/static/media/icon.e6911f8bb94dc6c4a102a74740c41763.svg",
     "topRow": 22,
@@ -10,7 +10,6 @@
     "animateLoading": true,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"},
         {"key": "tableData"},
         {"key": "primaryColumns.procured_channel.computedValue"},
         {"key": "primaryColumns.mtd_count.computedValue"},
@@ -29,7 +28,7 @@
     "fontStyle": "BOLD",
     "enableClientSideSearch": true,
     "version": 2,
-    "textColor": "#18181b",
+    "textColor": "#64469b",
     "totalRecordsCount": 0,
     "tags": [
         "Suggested",
@@ -59,9 +58,9 @@
             "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}"
         }
     },
-    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+    "borderRadius": "1.5rem",
     "columnUpdatedAt": 1699514363958,
-    "originalBottomRow": 29,
+    "originalBottomRow": 43,
     "defaultSelectedRowIndices": [0],
     "mobileBottomRow": 47,
     "widgetName": "Table1",
@@ -84,7 +83,7 @@
     "mobileRightColumn": 18,
     "parentColumnSpace": 14.09375,
     "dynamicTriggerPathList": [],
-    "borderWidth": "1",
+    "borderWidth": "2",
     "primaryColumns": {
         "yesterday_count": {
             "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"yesterday_count\"]))}}",
@@ -105,7 +104,7 @@
             "isVisible": true,
             "label": "{{yesterday_date.data[0][\"Yesterday's Date\"]}}",
             "fontStyle": "BOLD",
-            "textColor": "#FFFFFF",
+            "textColor": "#ffffff",
             "columnType": "number",
             "horizontalAlignment": "CENTER",
             "isCellEditable": false,
@@ -135,7 +134,7 @@
             "isVisible": true,
             "label": "Channel",
             "fontStyle": "BOLD",
-            "textColor": "#18181b",
+            "textColor": "#64469b",
             "columnType": "text",
             "horizontalAlignment": "CENTER",
             "isCellEditable": false,
@@ -165,7 +164,7 @@
             "isVisible": true,
             "label": "MTD",
             "fontStyle": "BOLD",
-            "textColor": "#18181b",
+            "textColor": "#64469b",
             "columnType": "number",
             "horizontalAlignment": "CENTER",
             "isCellEditable": false,
@@ -173,7 +172,7 @@
             "enableFilter": true,
             "sticky": "",
             "originalId": "mtd_count",
-            "cellBackground": "#ffffff",
+            "cellBackground": "#FFFF",
             "verticalAlignment": "CENTER"
         }
     },
@@ -194,7 +193,7 @@
     "horizontalAlignment": "CENTER",
     "isVisibleSearch": false,
     "responsiveBehavior": "fill",
-    "originalTopRow": 7,
+    "originalTopRow": 22,
     "mobileLeftColumn": 0,
     "isVisiblePagination": false,
     "cellBackground": "#ffffff",
