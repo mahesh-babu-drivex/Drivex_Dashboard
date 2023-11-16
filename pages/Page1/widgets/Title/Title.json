@@ -3,7 +3,10 @@
     "widgetName": "Title",
     "borderColor": "transparent",
     "isCanvas": true,
-    "dynamicPropertyPathList": [{"key": "borderRadius"}],
+    "dynamicPropertyPathList": [
+        {"key": "borderRadius"},
+        {"key": "backgroundColor"}
+    ],
     "displayName": "Container",
     "iconSVG": "/static/media/icon.1977dca3.svg",
     "topRow": 0,
@@ -46,7 +49,7 @@
     "borderWidth": "0",
     "key": "6bzu8mpizb",
     "labelTextSize": "0.875rem",
-    "backgroundColor": "#5A38FD",
+    "backgroundColor": "linear-gradient(to right,#64469B,#912D7D,#E63C32,#F47823)\n\n",
     "rightColumn": 64,
     "dynamicHeight": "FIXED",
     "widgetId": "6c82bzlgyb",

@@ -52,6 +52,16 @@
               "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
+          ],
+          [
+            {
+              "id": "Page1_yesterday_date",
+              "name": "yesterday_date",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
           ]
         ],
         "layoutOnLoadActionErrors": [],

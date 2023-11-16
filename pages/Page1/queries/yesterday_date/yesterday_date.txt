@@ -1,0 +1,1 @@
+SELECT TO_CHAR((CURRENT_DATE - INTERVAL '1 day'), 'DD-Mon') AS "Yesterday's Date";
