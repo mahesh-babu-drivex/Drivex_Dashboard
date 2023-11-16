@@ -4,13 +4,13 @@
     "dynamicPropertyPathList": [],
     "iconSVG": "/static/media/icon.a47d6d5dbbb718c4dc4b2eb4f218c1b7.svg",
     "displayName": "Text",
-    "topRow": 17,
+    "topRow": 22,
     "searchTags": [
         "typography",
         "paragraph",
         "label"
     ],
-    "bottomRow": 21,
+    "bottomRow": 26,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
