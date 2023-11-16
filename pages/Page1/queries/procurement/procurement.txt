@@ -1,0 +1,37 @@
+WITH MTD_CTE AS (
+    SELECT
+        procured_channel,
+        COUNT(*) AS mtd_count
+    FROM
+        cleaned.database
+    WHERE
+        EXTRACT(YEAR FROM payment_date) = EXTRACT(YEAR FROM CURRENT_DATE)
+        AND EXTRACT(MONTH FROM payment_date) = EXTRACT(MONTH FROM CURRENT_DATE)
+        AND procured_channel IS NOT NULL  -- Filter out NULL values
+    GROUP BY
+        procured_channel
+),
+YESTERDAY_CTE AS (
+    SELECT
+        procured_channel,
+        COUNT(*) AS yesterday_count
+    FROM
+        cleaned.database
+    WHERE
+        DATE(payment_date) = CURRENT_DATE - INTERVAL '1 day'
+        AND procured_channel IS NOT NULL  -- Filter out NULL values
+    GROUP BY
+        procured_channel
+)
+SELECT
+    COALESCE(MTD_CTE.procured_channel, YESTERDAY_CTE.procured_channel, 'Total') AS procured_channel,
+    COALESCE(SUM(MTD_CTE.mtd_count), 0) AS mtd_count,
+    COALESCE(SUM(YESTERDAY_CTE.yesterday_count), 0) AS yesterday_count
+FROM
+    MTD_CTE
+FULL OUTER JOIN YESTERDAY_CTE
+    ON MTD_CTE.procured_channel = YESTERDAY_CTE.procured_channel
+WHERE
+    MTD_CTE.procured_channel IS NOT NULL OR YESTERDAY_CTE.procured_channel IS NOT NULL  -- Exclude NULL values
+GROUP BY
+    GROUPING SETS ((MTD_CTE.procured_channel, YESTERDAY_CTE.procured_channel), ());

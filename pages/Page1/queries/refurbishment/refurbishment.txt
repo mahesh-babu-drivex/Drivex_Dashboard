@@ -1,0 +1,48 @@
+WITH MTD_CTE AS (
+    SELECT
+        COALESCE(qc_dtc, 'N/A') AS qc_dtc,
+        COUNT(*) AS mtd_count
+    FROM
+        cleaned."dtc_QC"
+    WHERE
+        EXTRACT(YEAR FROM qc_time) = EXTRACT(YEAR FROM CURRENT_DATE)
+        AND EXTRACT(MONTH FROM qc_time) = EXTRACT(MONTH FROM CURRENT_DATE)
+    GROUP BY
+        qc_dtc
+),
+YESTERDAY_CTE AS (
+    SELECT
+        COALESCE(qc_dtc, 'N/A') AS qc_dtc,
+        COUNT(*) AS yesterday_count
+    FROM
+        cleaned."dtc_QC"
+    WHERE
+        DATE(qc_time) = CURRENT_DATE - INTERVAL '1 day'
+    GROUP BY
+        qc_dtc
+)
+SELECT
+    qc_dtc,
+    COALESCE(mtd_count, 0) AS mtd_count,
+    COALESCE(yesterday_count, 0) AS yesterday_count
+FROM (
+    SELECT
+        MTD_CTE.qc_dtc,
+        MTD_CTE.mtd_count,
+        YESTERDAY_CTE.yesterday_count
+    FROM
+        MTD_CTE
+    LEFT JOIN YESTERDAY_CTE ON MTD_CTE.qc_dtc = YESTERDAY_CTE.qc_dtc
+
+    UNION ALL
+
+    SELECT
+        'Total' AS qc_dtc,
+        COALESCE(SUM(MTD_CTE.mtd_count), 0) AS mtd_count,
+        COALESCE(SUM(YESTERDAY_CTE.yesterday_count), 0) AS yesterday_count
+    FROM
+        MTD_CTE
+    LEFT JOIN YESTERDAY_CTE ON MTD_CTE.qc_dtc = YESTERDAY_CTE.qc_dtc
+) AS combined_data
+ORDER BY
+    qc_dtc;
