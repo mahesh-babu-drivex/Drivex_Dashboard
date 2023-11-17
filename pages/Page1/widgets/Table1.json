@@ -58,7 +58,7 @@
             "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}"
         }
     },
-    "borderRadius": "1.5rem",
+    "borderRadius": "0px",
     "columnUpdatedAt": 1699514363958,
     "originalBottomRow": 43,
     "defaultSelectedRowIndices": [0],

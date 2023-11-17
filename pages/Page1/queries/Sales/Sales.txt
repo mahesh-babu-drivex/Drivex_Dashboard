@@ -1,7 +1,7 @@
 WITH numbered_rows AS (
-SELECT
+    SELECT
         ROW_NUMBER() OVER (ORDER BY sales) AS row_num,
-        COALESCE(CAST("01-Nov" AS INT), 0) +
+       COALESCE(CAST("01-Nov" AS INT), 0) +
         COALESCE(CAST("02-Nov" AS INT), 0) +
         COALESCE(CAST("03-Nov" AS INT), 0) +
         COALESCE(CAST("04-Nov" AS INT), 0) +
@@ -30,12 +30,15 @@ SELECT
         COALESCE(CAST("27-Nov" AS INT), 0) +
         COALESCE(CAST("28-Nov" AS INT), 0) +
         COALESCE(CAST("29-Nov" AS INT), 0) +
-        COALESCE(CAST("30-Nov" AS INT), 0) AS mtd    FROM public.sales_dash
-    WHERE sales = 'Total'),
-nov_15_total AS (
-  SELECT ROW_NUMBER() OVER (ORDER BY sales) AS row_num, "15-Nov" AS nov_15_sales
+        COALESCE(CAST("30-Nov" AS INT), 0) AS mtd 
+    FROM public.sales_dash
+    WHERE sales = 'Total'
+),
+nov_16_total AS (
+    SELECT ROW_NUMBER() OVER (ORDER BY sales) AS row_num, "16-Nov" AS nov_16_sales -- Changed to "16-Nov"
     FROM sales_dash
-    WHERE sales = 'Total')
+    WHERE sales = 'Total'
+)
 SELECT 
     CASE 
         WHEN nr.row_num = 1 THEN 'COCO'
@@ -43,16 +46,16 @@ SELECT
         WHEN nr.row_num = 3 THEN 'PaaS'
         WHEN nr.row_num = 4 THEN 'ROI'
     END AS sales,
-    COALESCE(nr.mtd::numeric, 0) AS mtd, -- Assuming the mtd column contains numeric data
-    COALESCE(nt.nov_15_sales::numeric, 0) AS nov_15_sales -- Assuming the nov_15_sales column contains numeric data
+    COALESCE(nr.mtd::numeric, 0) AS mtd,
+    COALESCE(nt.nov_16_sales::numeric, 0) AS nov_16_sales -- Changed column reference to "nov_16_sales"
 FROM numbered_rows nr
-JOIN nov_15_total nt ON nr.row_num = nt.row_num
+JOIN nov_16_total nt ON nr.row_num = nt.row_num
 
 UNION ALL
 
 SELECT 
     'Total' AS sales,
     COALESCE(SUM(nr.mtd::numeric), 0) AS mtd_total,
-    COALESCE(SUM(nt.nov_15_sales::numeric), 0) AS nov_15_total
+    COALESCE(SUM(nt.nov_16_sales::numeric), 0) AS nov_16_total -- Changed column reference to "nov_16_total"
 FROM numbered_rows nr
-JOIN nov_15_total nt ON nr.row_num = nt.row_num;
+JOIN nov_16_total nt ON nr.row_num = nt.row_num;

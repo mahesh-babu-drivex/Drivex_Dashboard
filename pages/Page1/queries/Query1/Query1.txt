@@ -1,23 +1,61 @@
-DO $$
-DECLARE
-    column_name text;
-    table_name text;
-    yesterday_date_query text;
-    yesterday_date_result text;
-BEGIN
-    -- Replace 'your_table_name' with your table name
-    SELECT column_name, table_name 
-    INTO column_name, table_name
-    FROM information_schema.columns 
-    WHERE table_name = 'sales_dash' 
-    AND data_type = 'character varying'; -- Modify the data type as needed
+WITH numbered_rows AS (
+    SELECT
+        ROW_NUMBER() OVER (ORDER BY sales) AS row_num,
+       COALESCE(CAST("01-Nov" AS INT), 0) +
+        COALESCE(CAST("02-Nov" AS INT), 0) +
+        COALESCE(CAST("03-Nov" AS INT), 0) +
+        COALESCE(CAST("04-Nov" AS INT), 0) +
+        COALESCE(CAST("05-Nov" AS INT), 0) +
+        COALESCE(CAST("06-Nov" AS INT), 0) +
+        COALESCE(CAST("07-Nov" AS INT), 0) +
+        COALESCE(CAST("08-Nov" AS INT), 0) +
+        COALESCE(CAST("09-Nov" AS INT), 0) +
+        COALESCE(CAST("10-Nov" AS INT), 0) +
+        COALESCE(CAST("11-Nov" AS INT), 0) +
+        COALESCE(CAST("12-Nov" AS INT), 0) +
+        COALESCE(CAST("13-Nov" AS INT), 0) +
+        COALESCE(CAST("14-Nov" AS INT), 0) +
+        COALESCE(CAST("15-Nov" AS INT), 0) +
+        COALESCE(CAST("16-Nov" AS INT), 0) +
+        COALESCE(CAST("17-Nov" AS INT), 0) +
+        COALESCE(CAST("18-Nov" AS INT), 0) +
+        COALESCE(CAST("19-Nov" AS INT), 0) +
+        COALESCE(CAST("20-Nov" AS INT), 0) +
+        COALESCE(CAST("21-Nov" AS INT), 0) +
+        COALESCE(CAST("22-Nov" AS INT), 0) +
+        COALESCE(CAST("23-Nov" AS INT), 0) +
+        COALESCE(CAST("24-Nov" AS INT), 0) +
+        COALESCE(CAST("25-Nov" AS INT), 0) +
+        COALESCE(CAST("26-Nov" AS INT), 0) +
+        COALESCE(CAST("27-Nov" AS INT), 0) +
+        COALESCE(CAST("28-Nov" AS INT), 0) +
+        COALESCE(CAST("29-Nov" AS INT), 0) +
+        COALESCE(CAST("30-Nov" AS INT), 0) AS mtd 
+    FROM public.sales_dash
+    WHERE sales = 'Total'
+),
+nov_16_total AS (
+    SELECT ROW_NUMBER() OVER (ORDER BY sales) AS row_num, "16-Nov" AS nov_16_sales -- Changed to "16-Nov"
+    FROM sales_dash
+    WHERE sales = 'Total'
+)
+SELECT 
+    CASE 
+        WHEN nr.row_num = 1 THEN 'COCO'
+        WHEN nr.row_num = 2 THEN 'FOFO'
+        WHEN nr.row_num = 3 THEN 'PaaS'
+        WHEN nr.row_num = 4 THEN 'ROI'
+    END AS sales,
+    COALESCE(nr.mtd::numeric, 0) AS mtd,
+    COALESCE(nt.nov_16_sales::numeric, 0) AS nov_16_sales -- Changed column reference to "nov_16_sales"
+FROM numbered_rows nr
+JOIN nov_16_total nt ON nr.row_num = nt.row_num
 
-    -- Construct a query to fetch yesterday's date dynamically
-    yesterday_date_query := format('SELECT %I, to_char(to_date(%I, ''DD-Mon'') - interval ''1 day'', ''DD-Mon'') AS yesterday_date_in_format FROM %I', column_name, column_name, table_name);
+UNION ALL
 
-    -- Execute the constructed query
-    EXECUTE yesterday_date_query INTO yesterday_date_result;
-
-    -- Display the result
-    RAISE NOTICE 'Yesterday''s date: %', yesterday_date_result;
-END $$;
+SELECT 
+    'Total' AS sales,
+    COALESCE(SUM(nr.mtd::numeric), 0) AS mtd_total,
+    COALESCE(SUM(nt.nov_16_sales::numeric), 0) AS nov_16_total -- Changed column reference to "nov_16_total"
+FROM numbered_rows nr
+JOIN nov_16_total nt ON nr.row_num = nt.row_num;

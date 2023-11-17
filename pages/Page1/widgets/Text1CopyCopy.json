@@ -8,8 +8,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 22,
-    "bottomRow": 26,
+    "topRow": 23,
+    "bottomRow": 27,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -19,7 +19,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 5.63330078125,
     "dynamicTriggerPathList": [],
-    "leftColumn": 45,
+    "leftColumn": 44,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -30,7 +30,7 @@
     "text": "Sales",
     "key": "xlu8zs4xz8",
     "isDeprecated": false,
-    "rightColumn": 62,
+    "rightColumn": 61,
     "textAlign": "CENTER",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "xxvr90vv47",
