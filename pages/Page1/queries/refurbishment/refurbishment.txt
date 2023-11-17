@@ -3,7 +3,7 @@ WITH MTD_CTE AS (
         COALESCE(qc_dtc, 'N/A') AS qc_dtc,
         COUNT(*) AS mtd_count
     FROM
-        cleaned."dtc_QC"
+        cleaned_live_data."dtc_QC"
     WHERE
         EXTRACT(YEAR FROM qc_time) = EXTRACT(YEAR FROM CURRENT_DATE)
         AND EXTRACT(MONTH FROM qc_time) = EXTRACT(MONTH FROM CURRENT_DATE)
@@ -15,7 +15,7 @@ YESTERDAY_CTE AS (
         COALESCE(qc_dtc, 'N/A') AS qc_dtc,
         COUNT(*) AS yesterday_count
     FROM
-        cleaned."dtc_QC"
+        cleaned_live_data."dtc_QC"
     WHERE
         DATE(qc_time) = CURRENT_DATE - INTERVAL '1 day'
     GROUP BY

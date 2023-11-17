@@ -3,10 +3,10 @@ WITH MTD_CTE AS (
         procured_channel,
         COUNT(*) AS mtd_count
     FROM
-        cleaned.database
+        cleaned_live_data.procurement
     WHERE
-        EXTRACT(YEAR FROM payment_date) = EXTRACT(YEAR FROM CURRENT_DATE)
-        AND EXTRACT(MONTH FROM payment_date) = EXTRACT(MONTH FROM CURRENT_DATE)
+        EXTRACT(YEAR FROM confirmation_date) = EXTRACT(YEAR FROM CURRENT_DATE)
+        AND EXTRACT(MONTH FROM confirmation_date) = EXTRACT(MONTH FROM CURRENT_DATE)
         AND procured_channel IS NOT NULL  -- Filter out NULL values
     GROUP BY
         procured_channel
@@ -16,9 +16,9 @@ YESTERDAY_CTE AS (
         procured_channel,
         COUNT(*) AS yesterday_count
     FROM
-        cleaned.database
+        cleaned_live_data.procurement
     WHERE
-        DATE(payment_date) = CURRENT_DATE - INTERVAL '1 day'
+        DATE(confirmation_date) = CURRENT_DATE - INTERVAL '1 day'
         AND procured_channel IS NOT NULL  -- Filter out NULL values
     GROUP BY
         procured_channel
