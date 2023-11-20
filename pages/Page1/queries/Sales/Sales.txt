@@ -31,12 +31,12 @@ WITH numbered_rows AS (
         COALESCE(CAST("28-Nov" AS INT), 0) +
         COALESCE(CAST("29-Nov" AS INT), 0) +
         COALESCE(CAST("30-Nov" AS INT), 0) AS mtd 
-    FROM public.sales_dash
+    FROM raw_live_data.sales_dash
     WHERE sales = 'Total'
 ),
 nov_19_total AS (
     SELECT ROW_NUMBER() OVER (ORDER BY sales) AS row_num, "19-Nov" AS nov_19_sales -- Changed to "19-Nov"
-    FROM sales_dash
+    FROM raw_live_data.sales_dash
     WHERE sales = 'Total'
 )
 SELECT 
