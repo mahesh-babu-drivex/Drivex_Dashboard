@@ -1,7 +1,7 @@
 WITH numbered_rows AS (
     SELECT
         ROW_NUMBER() OVER (ORDER BY sales) AS row_num,
-       COALESCE(CAST("01-Nov" AS INT), 0) +
+        COALESCE(CAST("01-Nov" AS INT), 0) +
         COALESCE(CAST("02-Nov" AS INT), 0) +
         COALESCE(CAST("03-Nov" AS INT), 0) +
         COALESCE(CAST("04-Nov" AS INT), 0) +
@@ -34,8 +34,8 @@ WITH numbered_rows AS (
     FROM public.sales_dash
     WHERE sales = 'Total'
 ),
-nov_16_total AS (
-    SELECT ROW_NUMBER() OVER (ORDER BY sales) AS row_num, "16-Nov" AS nov_16_sales -- Changed to "16-Nov"
+nov_17_total AS (
+    SELECT ROW_NUMBER() OVER (ORDER BY sales) AS row_num, "17-Nov" AS nov_17_sales -- Changed to "17-Nov"
     FROM sales_dash
     WHERE sales = 'Total'
 )
@@ -47,15 +47,15 @@ SELECT
         WHEN nr.row_num = 4 THEN 'ROI'
     END AS sales,
     COALESCE(nr.mtd::numeric, 0) AS mtd,
-    COALESCE(nt.nov_16_sales::numeric, 0) AS nov_16_sales -- Changed column reference to "nov_16_sales"
+    COALESCE(nt.nov_17_sales::numeric, 0) AS nov_17_sales -- Changed column reference to "nov_17_sales"
 FROM numbered_rows nr
-JOIN nov_16_total nt ON nr.row_num = nt.row_num
+JOIN nov_17_total nt ON nr.row_num = nt.row_num
 
 UNION ALL
 
 SELECT 
     'Total' AS sales,
     COALESCE(SUM(nr.mtd::numeric), 0) AS mtd_total,
-    COALESCE(SUM(nt.nov_16_sales::numeric), 0) AS nov_16_total -- Changed column reference to "nov_16_total"
+    COALESCE(SUM(nt.nov_17_sales::numeric), 0) AS nov_17_total -- Changed column reference to "nov_17_total"
 FROM numbered_rows nr
-JOIN nov_16_total nt ON nr.row_num = nt.row_num;
+JOIN nov_17_total nt ON nr.row_num = nt.row_num;

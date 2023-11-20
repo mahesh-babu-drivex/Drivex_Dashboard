@@ -13,8 +13,8 @@
         {"key": "tableData"},
         {"key": "primaryColumns.sales.computedValue"},
         {"key": "primaryColumns.mtd.computedValue"},
-        {"key": "primaryColumns.nov_16_sales.computedValue"},
-        {"key": "primaryColumns.nov_16_sales.label"}
+        {"key": "primaryColumns.nov_19_sales.computedValue"},
+        {"key": "primaryColumns.nov_19_sales.label"}
     ],
     "needsHeightForContent": true,
     "leftColumn": 45,
@@ -58,7 +58,7 @@
         }
     },
     "borderRadius": "1.5rem",
-    "columnUpdatedAt": 1700193074982,
+    "columnUpdatedAt": 1700453500654,
     "defaultSelectedRowIndices": [0],
     "mobileBottomRow": 77,
     "widgetName": "Table2",
@@ -66,7 +66,7 @@
     "columnOrder": [
         "sales",
         "mtd",
-        "nov_16_sales"
+        "nov_19_sales"
     ],
     "dynamicPropertyPathList": [],
     "compactMode": "DEFAULT",
@@ -83,13 +83,13 @@
     "dynamicTriggerPathList": [],
     "borderWidth": "2",
     "primaryColumns": {
-        "nov_16_sales": {
-            "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"nov_16_sales\"]))}}",
+        "nov_19_sales": {
+            "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"nov_19_sales\"]))}}",
             "isEditable": false,
-            "alias": "nov_16_sales",
+            "alias": "nov_19_sales",
             "enableSort": true,
             "isSaveVisible": true,
-            "id": "nov_16_sales",
+            "id": "nov_19_sales",
             "isDisabled": false,
             "allowSameOptionsInNewRow": true,
             "validation": {},
@@ -102,15 +102,15 @@
             "isVisible": true,
             "label": "{{yesterday_date.data[0][\"Yesterday's Date\"]}}",
             "fontStyle": "BOLD",
-            "textColor": "#ffffff",
+            "textColor": "#64469b",
             "columnType": "number",
             "horizontalAlignment": "CENTER",
             "isCellEditable": false,
             "width": 150,
             "enableFilter": true,
             "sticky": "",
-            "originalId": "nov_16_sales",
-            "cellBackground": "#64469b",
+            "originalId": "nov_19_sales",
+            "cellBackground": "#ffffff",
             "verticalAlignment": "CENTER"
         },
         "mtd": {
