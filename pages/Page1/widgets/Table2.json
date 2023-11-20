@@ -102,7 +102,7 @@
             "isVisible": true,
             "label": "{{yesterday_date.data[0][\"Yesterday's Date\"]}}",
             "fontStyle": "BOLD",
-            "textColor": "#64469b",
+            "textColor": "#ffffff",
             "columnType": "text",
             "horizontalAlignment": "CENTER",
             "isCellEditable": false,
@@ -110,7 +110,7 @@
             "enableFilter": true,
             "sticky": "",
             "originalId": "yesterday_date",
-            "cellBackground": "#ffffff",
+            "cellBackground": "#64469b",
             "verticalAlignment": "CENTER"
         },
         "mtd": {
