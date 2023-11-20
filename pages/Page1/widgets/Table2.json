@@ -13,8 +13,8 @@
         {"key": "tableData"},
         {"key": "primaryColumns.sales.computedValue"},
         {"key": "primaryColumns.mtd.computedValue"},
-        {"key": "primaryColumns.nov_19_sales.computedValue"},
-        {"key": "primaryColumns.nov_19_sales.label"}
+        {"key": "primaryColumns.yesterday_date.computedValue"},
+        {"key": "primaryColumns.yesterday_date.label"}
     ],
     "needsHeightForContent": true,
     "leftColumn": 45,
@@ -58,7 +58,7 @@
         }
     },
     "borderRadius": "1.5rem",
-    "columnUpdatedAt": 1700453500654,
+    "columnUpdatedAt": 1700484231429,
     "defaultSelectedRowIndices": [0],
     "mobileBottomRow": 77,
     "widgetName": "Table2",
@@ -66,7 +66,7 @@
     "columnOrder": [
         "sales",
         "mtd",
-        "nov_19_sales"
+        "yesterday_date"
     ],
     "dynamicPropertyPathList": [],
     "compactMode": "DEFAULT",
@@ -83,13 +83,13 @@
     "dynamicTriggerPathList": [],
     "borderWidth": "2",
     "primaryColumns": {
-        "nov_19_sales": {
-            "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"nov_19_sales\"]))}}",
+        "yesterday_date": {
+            "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"yesterday_date\"]))}}",
             "isEditable": false,
-            "alias": "nov_19_sales",
+            "alias": "yesterday_date",
             "enableSort": true,
             "isSaveVisible": true,
-            "id": "nov_19_sales",
+            "id": "yesterday_date",
             "isDisabled": false,
             "allowSameOptionsInNewRow": true,
             "validation": {},
@@ -102,15 +102,15 @@
             "isVisible": true,
             "label": "{{yesterday_date.data[0][\"Yesterday's Date\"]}}",
             "fontStyle": "BOLD",
-            "textColor": "#ffffff",
-            "columnType": "number",
+            "textColor": "#64469b",
+            "columnType": "text",
             "horizontalAlignment": "CENTER",
             "isCellEditable": false,
             "width": 150,
             "enableFilter": true,
             "sticky": "",
-            "originalId": "nov_19_sales",
-            "cellBackground": "#64469b",
+            "originalId": "yesterday_date",
+            "cellBackground": "#ffffff",
             "verticalAlignment": "CENTER"
         },
         "mtd": {

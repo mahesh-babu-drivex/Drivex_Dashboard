@@ -1,1 +1,68 @@
-SELECT * FROM select_dynamic_column_yesterday() ;
+WITH MTD_Sales AS (
+ SELECT
+        CASE 
+            WHEN sales = 'Total' THEN
+                CASE 
+                    WHEN ROW_NUMBER() OVER (ORDER BY sales) = 1 THEN 'COCO'
+                    WHEN ROW_NUMBER() OVER (ORDER BY sales) = 2 THEN 'FOFO'
+                    WHEN ROW_NUMBER() OVER (ORDER BY sales) = 3 THEN 'PaaS'
+                    WHEN ROW_NUMBER() OVER (ORDER BY sales) = 4 THEN 'ROI'
+                END
+            ELSE sales
+        END AS renamed_sales,
+        COALESCE(CAST("01-Nov" AS INT), 0) +
+        COALESCE(CAST("02-Nov" AS INT), 0) +
+        COALESCE(CAST("03-Nov" AS INT), 0) +
+        COALESCE(CAST("04-Nov" AS INT), 0) +
+        COALESCE(CAST("05-Nov" AS INT), 0) +
+        COALESCE(CAST("06-Nov" AS INT), 0) +
+        COALESCE(CAST("07-Nov" AS INT), 0) +
+        COALESCE(CAST("08-Nov" AS INT), 0) +
+        COALESCE(CAST("09-Nov" AS INT), 0) +
+        COALESCE(CAST("10-Nov" AS INT), 0) +
+        COALESCE(CAST("11-Nov" AS INT), 0) +
+        COALESCE(CAST("12-Nov" AS INT), 0) +
+        COALESCE(CAST("13-Nov" AS INT), 0) +
+        COALESCE(CAST("14-Nov" AS INT), 0) +
+        COALESCE(CAST("15-Nov" AS INT), 0) +
+        COALESCE(CAST("16-Nov" AS INT), 0) +
+        COALESCE(CAST("17-Nov" AS INT), 0) +
+        COALESCE(CAST("18-Nov" AS INT), 0) +
+        COALESCE(CAST("19-Nov" AS INT), 0) +
+        COALESCE(CAST("20-Nov" AS INT), 0) +
+        COALESCE(CAST("21-Nov" AS INT), 0) +
+        COALESCE(CAST("22-Nov" AS INT), 0) +
+        COALESCE(CAST("23-Nov" AS INT), 0) +
+        COALESCE(CAST("24-Nov" AS INT), 0) +
+        COALESCE(CAST("25-Nov" AS INT), 0) +
+        COALESCE(CAST("26-Nov" AS INT), 0) +
+        COALESCE(CAST("27-Nov" AS INT), 0) +
+        COALESCE(CAST("28-Nov" AS INT), 0) +
+        COALESCE(CAST("29-Nov" AS INT), 0) +
+        COALESCE(CAST("30-Nov" AS INT), 0) AS mtd,
+        ROW_NUMBER() OVER (ORDER BY sales) AS row_num
+    FROM raw_live_data.sales_dash
+    WHERE sales = 'Total'),
+Yesterday_Data AS (
+    SELECT *, ROW_NUMBER() OVER (ORDER BY sales) AS row_num
+    FROM select_dynamic_column_yesterday()),
+Total_Sales AS (
+    SELECT 
+        'Total' AS sales,
+        SUM(mtd) AS total_mtd,
+        CAST(SUM(CAST(yesterday_date AS INT)) AS VARCHAR) AS yesterday_total
+    FROM (
+        SELECT mtd, CAST(yesterday_date AS INT) AS yesterday_date
+        FROM MTD_Sales
+        JOIN Yesterday_Data ON MTD_Sales.row_num = Yesterday_Data.row_num
+    ) subquery
+)
+
+SELECT MTD_Sales.renamed_sales AS sales, MTD_Sales.mtd, CAST(Yesterday_Data.yesterday_date AS VARCHAR) AS yesterday_date
+FROM MTD_Sales
+JOIN Yesterday_Data ON MTD_Sales.row_num = Yesterday_Data.row_num
+
+UNION ALL
+
+SELECT sales, total_mtd AS mtd, yesterday_total AS yesterday_date
+FROM Total_Sales;
