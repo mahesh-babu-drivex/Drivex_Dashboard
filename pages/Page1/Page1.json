@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 440,
+          "bottomRow": 940,
           "containerStyle": "none",
           "snapRows": 124,
           "parentRowSpace": 1,
@@ -43,18 +43,13 @@
               "pluginType": "DB",
               "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
-            }
-          ],
-          [
+            },
             {
-              "id": "Page1_JSObject2.fetchData",
-              "name": "JSObject2.fetchData",
-              "collectionId": "Page1_JSObject2",
+              "id": "Page1_Query4",
+              "name": "Query4",
               "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "function () {\n  const inputData = Query2.data;\n  return inputData;\n}"
-              ],
+              "pluginType": "DB",
+              "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
           ]

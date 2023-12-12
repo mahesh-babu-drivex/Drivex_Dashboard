@@ -10,27 +10,14 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 15,
-    "bottomRow": 44,
+    "topRow": 19,
+    "bottomRow": 48,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
     "mobileRightColumn": 39,
     "chartData": {"m9vzyt7djn": {
-        "data": [
-            {
-                "x": "Product1",
-                "y": 20000
-            },
-            {
-                "x": "Product2",
-                "y": 22000
-            },
-            {
-                "x": "Product3",
-                "y": 32000
-            }
-        ],
+        "data": "{{Query1.data.map=>}}",
         "seriesName": "2023"
     }},
     "animateLoading": true,
@@ -42,62 +29,17 @@
         {"key": "boxShadow"},
         {"key": "accentColor"},
         {"key": "fontFamily"},
+        {"key": "chartData.m9vzyt7djn.data"},
         {"key": "customEChartConfig"}
     ],
-    "leftColumn": 18,
-    "customFusionChartConfig": {
-        "type": "column2d",
-        "dataSource": {
-            "data": [
-                {
-                    "label": "Product1",
-                    "value": 20000
-                },
-                {
-                    "label": "Product2",
-                    "value": 22000
-                },
-                {
-                    "label": "Product3",
-                    "value": 32000
-                }
-            ],
-            "chart": {
-                "legendIconSides": "4",
-                "canvasPadding": "0",
-                "captionAlignment": "center",
-                "yAxisNameFontSize": "14",
-                "caption": "Sales Report",
-                "labelFontColor": "#716e6e",
-                "chartLeftMargin": "20",
-                "captionFontSize": "24",
-                "chartTopMargin": "10",
-                "theme": "fusion",
-                "legendIconAlpha": "100",
-                "chartBottomMargin": "10",
-                "labelFontSize": "12",
-                "xAxisNameFontColor": "#716e6e",
-                "yAxisNameFontColor": "#716e6e",
-                "captionFontColor": "#231F20",
-                "yAxisValueFontColor": "#716e6e",
-                "captionPadding": "20",
-                "yAxisName": "Revenue($)",
-                "legendIconBgAlpha": "100",
-                "xAxisName": "Product Line",
-                "alignCaptionWithCanvas": 1,
-                "chartRightMargin": "40",
-                "legendPosition": "top",
-                "xAxisNameFontSize": "14",
-                "yAxisValueFontSize": "12"
-            }
-        }
-    },
-    "customEChartConfig": "{{JSObject2.option}}",
+    "leftColumn": 24,
+    "customFusionChartConfig": "JSON\nXML\n{\n    \"chart\": {\n        \"caption\": \"Website - Harry's SuperMart\",\n        \"subcaption\": \"Visit to purchase - Conversion analysis for last year\",\n        \"decimals\": \"1\",\n        \"isHollow\": \"1\",\n        \"labelDistance\": \"15\",\n        \"is2D\": \"1\",\n        \"plotTooltext\": \"Success : $percentOfPrevValue\",\n        \"showPercentValues\": \"1\",\n        \"theme\": \"fusion\"\n    },\n    \"data\": [\n        {\n            \"label\": \"Unique Website Visits\",\n            \"value\": \"1460000\"\n        },\n        {\n            \"label\": \"Programme Details Section Visits\",\n            \"value\": \"930000\"\n        },\n        {\n            \"label\": \"Attempts to Register\",\n            \"value\": \"540000\"\n        },\n        {\n            \"label\": \"Successful Registrations\",\n            \"value\": \"210000\"\n        },\n        {\n            \"label\": \"Logged In\",\n            \"value\": \"190000\"\n        },\n        {\n            \"label\": \"Purchased on Introductory Offers\",\n            \"value\": \"120000\"\n        }\n    ]\n}",
+    "customEChartConfig": "{{JSObject3.option}}",
     "flexVerticalAlignment": "start",
     "showDataPointLabel": false,
     "key": "cs3b8r5z75",
     "isDeprecated": false,
-    "rightColumn": 38,
+    "rightColumn": 60,
     "widgetId": "5aji794617",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,

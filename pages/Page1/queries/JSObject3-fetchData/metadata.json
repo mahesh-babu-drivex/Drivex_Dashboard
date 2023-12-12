@@ -3,7 +3,7 @@
   "pluginId": "js-plugin",
   "unpublishedAction": {
     "name": "fetchData",
-    "fullyQualifiedName": "JSObject2.fetchData",
+    "fullyQualifiedName": "JSObject3.fetchData",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,7 +14,7 @@
       "userPermissions": []
     },
     "pageId": "Page1",
-    "collectionId": "Page1_JSObject2",
+    "collectionId": "Page1_JSObject3",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -31,12 +31,12 @@
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page1_JSObject2.fetchData",
+  "id": "Page1_JSObject3.fetchData",
   "deleted": false,
-  "gitSyncId": "654c5d4e80e26167c30e16c9_6578567a99a01a4f1cd5193a"
+  "gitSyncId": "654c5d4e80e26167c30e16c9_6578805299a01a4f1cd5195c"
 }

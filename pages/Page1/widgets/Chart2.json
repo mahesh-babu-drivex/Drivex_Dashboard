@@ -1,6 +1,6 @@
 {
     "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-    "mobileBottomRow": 51,
+    "mobileBottomRow": 50,
     "widgetName": "Chart2",
     "allowScroll": false,
     "displayName": "Chart",
@@ -10,13 +10,13 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 15,
-    "bottomRow": 44,
+    "topRow": 57,
+    "bottomRow": 94,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
     "mobileRightColumn": 24,
-    "chartData": {"rhragjvzgq": {
+    "chartData": {"82qmownq7n": {
         "data": [
             {
                 "x": "Product1",
@@ -44,7 +44,7 @@
         {"key": "fontFamily"},
         {"key": "customEChartConfig"}
     ],
-    "leftColumn": 0,
+    "leftColumn": 1,
     "customFusionChartConfig": {
         "type": "column2d",
         "dataSource": {
@@ -92,13 +92,13 @@
             }
         }
     },
-    "customEChartConfig": "{{JSObject2.option}}",
+    "customEChartConfig": "{{JSObject4.option}}",
     "flexVerticalAlignment": "start",
     "showDataPointLabel": false,
-    "key": "6nyvdpmati",
+    "key": "6cq8lt3x7l",
     "isDeprecated": false,
-    "rightColumn": 18,
-    "widgetId": "0tsie2x8eo",
+    "rightColumn": 60,
+    "widgetId": "kavypdj5yy",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
     "isVisible": true,
@@ -108,7 +108,7 @@
     "tags": ["Display"],
     "renderMode": "CANVAS",
     "isLoading": false,
-    "mobileTopRow": 19,
+    "mobileTopRow": 18,
     "responsiveBehavior": "fill",
     "yAxisName": "Revenue($)",
     "chartName": "Sales Report",

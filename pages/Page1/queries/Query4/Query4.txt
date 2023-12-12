@@ -8,18 +8,14 @@ WITH TotalLeads AS (
 )
 SELECT 
     'Total Leads' AS name,
-    total_count AS value1,
-    ROUND((total_count::DECIMAL / total_count::DECIMAL) * 100) AS value,
-    1500000 / total_count AS cost
+    total_count AS value
 FROM TotalLeads
 
 UNION ALL
 
 SELECT 
     'Qualified Leads' AS name,
-    COUNT(*) AS value1,
-    ROUND((COUNT(*)::DECIMAL / (SELECT total_count FROM TotalLeads)) * 100) AS value,
-    1500000 / COUNT(*) AS cost
+    COUNT(*) AS value
 FROM raw_live_data.incremental_buy__lead_zoho_crm_stream
 WHERE 
     "Source" = 'Website' 
@@ -32,9 +28,7 @@ UNION ALL
 
 SELECT 
     'Inspection Scheduled' AS name,
-    COUNT(*) AS value1,
-    ROUND((COUNT(*)::DECIMAL / (SELECT total_count FROM TotalLeads)) * 100) AS value,
-    1500000 / COUNT(*) AS cost
+    COUNT(*) AS value1
 FROM raw_live_data.incremental_buy__lead_zoho_crm_stream
 WHERE 
     "Source" = 'Website' 
@@ -47,9 +41,7 @@ UNION ALL
 
 SELECT 
     'Procured Leads' AS name,
-    COUNT(*) AS value1,
-    ROUND((COUNT(*)::DECIMAL / (SELECT total_count FROM TotalLeads)) * 100) AS value,
-    1500000 / COUNT(*) AS cost
+    COUNT(*) AS value
 FROM raw_live_data.incremental_buy__lead_zoho_crm_stream
 WHERE 
     "Source" = 'Website' 

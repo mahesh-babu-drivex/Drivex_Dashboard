@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject4",
+    "pageId": "Page1",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "option",
+        "value": "{\n  title: {\n    text: 'Waterfall Chart',\n    subtext: 'Living Expenses in Shenzhen'\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    },\n    formatter: function (params) {\n      var tar = params[1];\n      return tar.name + '<br/>' + tar.seriesName + ' : ' + JSObject4.fetchData().values1[tar.dataIndex];\n    }\n  },\n  grid: {\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n  xAxis: {\n    type: 'category',\n    splitLine: {\n      show: false\n    },\n    data: JSObject4.fetchData().names\n  },\n  yAxis: {\n    type: 'value'\n  },\n  series: [{\n    name: 'Placeholder',\n    type: 'bar',\n    stack: 'Total',\n    itemStyle: {\n      borderColor: 'transparent',\n      color: 'transparent'\n    },\n    emphasis: {\n      itemStyle: {\n        borderColor: 'transparent',\n        color: 'transparent'\n      }\n    }\n  }, {\n    name: 'Life Cost',\n    type: 'bar',\n    stack: 'Total',\n    label: {\n      show: true,\n      position: 'inside'\n    },\n    data: JSObject4.fetchData().values1\n  }]\n}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Page1_JSObject4",
+  "deleted": false,
+  "gitSyncId": "654c5d4e80e26167c30e16c9_6578855599a01a4f1cd5196c"
+}

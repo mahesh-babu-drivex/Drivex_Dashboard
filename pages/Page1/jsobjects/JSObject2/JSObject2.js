@@ -1,14 +1,14 @@
 export default {
-	fetchData() {
-  const inputData =  Query2.data
+async fetchData() {
+const inuptdata =Query1.data
+return inuptdata
 
-  return inputData;
 },
-
 option :{
   title: {
-    text: 'procure'
+    text: 'procuremddent'
   },
+
   tooltip: {
     trigger: 'item',
   formatter: '{b}: {c}%'
@@ -40,7 +40,7 @@ option :{
           show: true,
           position: 'inside',
           formatter: '{b}: {c}%'
-		 },
+         },
       labelLine: {
         length: 10,
         lineStyle: {
@@ -57,7 +57,7 @@ option :{
           fontSize: 20
         }
       },
-      data: this.fetchData()
+      data:this.fetchData()
     }
   ]
 }

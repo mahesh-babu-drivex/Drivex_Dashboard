@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject3",
+    "pageId": "Page1",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "option",
+        "value": "{\n  backgroundColor: '#2c343c',\n  title: {\n    text: 'Customized Pie',\n    left: 'center',\n    top: 20,\n    textStyle: {\n      color: '#ccc'\n    }\n  },\n  tooltip: {\n    trigger: 'item'\n  },\n  visualMap: {\n    show: false,\n    min: 80,\n    max: 600,\n    inRange: {\n      colorLightness: [0, 1]\n    }\n  },\n  series: [{\n    name: 'Access From',\n    type: 'pie',\n    radius: '55%',\n    center: ['50%', '50%'],\n    data: JSObject3.fetchData().sort(function (a, b) {\n      return a.value - b.value;\n    }),\n    roseType: 'radius',\n    label: {\n      color: 'rgba(255, 255, 255, 0.3)'\n    },\n    labelLine: {\n      lineStyle: {\n        color: 'rgba(255, 255, 255, 0.3)'\n      },\n      smooth: 0.2,\n      length: 10,\n      length2: 20\n    },\n    itemStyle: {\n      color: '#c23531',\n      shadowBlur: 200,\n      shadowColor: 'rgba(0, 0, 0, 0.5)'\n    },\n    animationType: 'scale',\n    animationEasing: 'elasticOut',\n    animationDelay: function (idx) {\n      return Math.random() * 200;\n    }\n  }]\n}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Page1_JSObject3",
+  "deleted": false,
+  "gitSyncId": "654c5d4e80e26167c30e16c9_6578801499a01a4f1cd5195a"
+}
