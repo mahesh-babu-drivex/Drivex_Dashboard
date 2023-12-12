@@ -16,17 +16,18 @@ export default {
 	
 	option :{
   title: {
-    text: 'Waterfall Chart',
-    subtext: 'Living Expenses in Shenzhen'
+    text: 'Procurement',
+    subtext: 'Procurement Leads Marketing Cost analysis'
   },
   tooltip: {
     trigger: 'axis',
     axisPointer: {
       type: 'shadow'
     },
-    formatter: function (params) {
+  formatter: function (params) {
       var tar = params[1];
-  return tar.name + '<br/>' + tar.seriesName + ' : ' + this.fetchData().values1[tar.dataIndex];
+  return tar.value; // Access the value directly from the data point
+
     }
   },
   grid: {
@@ -58,10 +59,10 @@ export default {
           color: 'transparent'
         }
       },
-      // data: [0, 1700, 1400, 1200, 300, 0]
+      data: [0, 1700, 1400, 1200, 300, 0]
     },
     {
-      name: 'Life Cost',
+      name: 'Cost',
       type: 'bar',
       stack: 'Total',
       label: {

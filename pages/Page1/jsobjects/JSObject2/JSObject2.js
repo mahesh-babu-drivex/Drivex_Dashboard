@@ -1,7 +1,6 @@
 export default {
 async fetchData() {
-const inuptdata =Query1.data
-return inuptdata
+return await Query1.run()
 
 },
 option :{
