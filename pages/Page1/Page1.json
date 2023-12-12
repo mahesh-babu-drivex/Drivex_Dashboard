@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 710,
+          "bottomRow": 440,
           "containerStyle": "none",
           "snapRows": 124,
           "parentRowSpace": 1,
@@ -29,24 +29,16 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Page1_Sales",
-              "name": "Sales",
+              "id": "Page1_Query1",
+              "name": "Query1",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             },
             {
-              "id": "Page1_procurement",
-              "name": "procurement",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Page1_refurbishment",
-              "name": "refurbishment",
+              "id": "Page1_Query2",
+              "name": "Query2",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
@@ -55,11 +47,14 @@
           ],
           [
             {
-              "id": "Page1_yesterday_date",
-              "name": "yesterday_date",
+              "id": "Page1_JSObject2.fetchData",
+              "name": "JSObject2.fetchData",
+              "collectionId": "Page1_JSObject2",
               "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [],
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "function () {\n  const inputData = Query2.data;\n  return inputData;\n}"
+              ],
               "timeoutInMillisecond": 10000
             }
           ]

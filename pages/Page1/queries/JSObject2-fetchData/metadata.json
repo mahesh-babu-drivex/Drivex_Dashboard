@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "myFun1",
-    "fullyQualifiedName": "JSObject2.myFun1",
+    "name": "fetchData",
+    "fullyQualifiedName": "JSObject2.fetchData",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -22,8 +22,7 @@
       "selfReferencingDataPaths": [],
       "jsArguments": []
     },
-    "executeOnLoad": false,
-    "clientSideExecution": true,
+    "executeOnLoad": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -35,10 +34,9 @@
     "userSetOnLoad": true,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-11-21T04:21:26Z"
+    "userPermissions": []
   },
-  "id": "Page1_JSObject2.myFun1",
+  "id": "Page1_JSObject2.fetchData",
   "deleted": false,
-  "gitSyncId": "654c5d4e80e26167c30e16c9_655c304680e26167c30e185e"
+  "gitSyncId": "654c5d4e80e26167c30e16c9_6576e6d799a01a4f1cd51783"
 }
